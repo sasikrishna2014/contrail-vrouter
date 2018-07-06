@@ -34,6 +34,7 @@
 #include <net/tcp.h>
 #include <net/netlink.h>
 #include <net/genetlink.h>
+#include <net/ip6_checksum.h>
 
 #define ASSERT(x) BUG_ON(!(x));
 
