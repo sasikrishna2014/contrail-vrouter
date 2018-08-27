@@ -529,7 +529,7 @@ nl_socket(struct nl_client *cl, int domain, int type, int protocol)
 int
 nl_connect(struct nl_client *cl, uint32_t ip, uint16_t port)
 {
-    int group = VROUTER_GENETLINK_VROUTER_GROUP_ID;
+    unsigned int group = VROUTER_GENETLINK_VROUTER_GROUP_ID;
     int ret;
 
     if (cl->cl_socket_domain == AF_NETLINK) {
