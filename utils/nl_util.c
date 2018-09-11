@@ -38,7 +38,7 @@
 #endif
 
 #define VROUTER_GENETLINK_FAMILY_NAME "vrouter"
-#define VROUTER_GENETLINK_VROUTER_GROUP_ID 0x4
+#define VROUTER_GENETLINK_VROUTER_GROUP_ID 0x3
 #define GENL_ID_VROUTER         (NLMSG_MIN_TYPE + 0x10)
 
 extern struct nl_response *nl_parse_gen(struct nl_client *);
