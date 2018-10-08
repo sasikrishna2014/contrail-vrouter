@@ -59,10 +59,11 @@ struct vr_dummy_bridge_entry {
     vr_hentry_t be_hentry;
     struct vr_bridge_entry_key be_key;
     struct vr_nexthop *be_nh;
+    int8_t t_padding[3]; //added padding for __sync_* on ppc64 to mem align below IE
+    unsigned short be_flags;
     uint64_t be_packets;
     uint32_t be_label;
-    uint32_t be_nh_id;
-    unsigned short be_flags;
+    uint32_t be_nh_id;    
 } __attribute__((packed));
 
 #define VR_BRIDGE_ENTRY_PACK (64 - sizeof(struct vr_dummy_bridge_entry))
@@ -71,10 +72,11 @@ struct vr_bridge_entry {
     vr_hentry_t be_hentry;
     struct vr_bridge_entry_key be_key;
     struct vr_nexthop *be_nh;
+    int8_t t_padding[3]; //added padding for __sync_* on ppc64 to mem align below IE
     uint64_t be_packets;
+    unsigned short be_flags;
     uint32_t be_label;
     int32_t be_nh_id;
-    unsigned short be_flags;
     unsigned char be_pack[VR_BRIDGE_ENTRY_PACK];
 } __attribute__((packed));
 
