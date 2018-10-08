@@ -381,7 +381,9 @@ mem_dev_mmap(struct file *fp, struct vm_area_struct *vma)
             (table_size >> PAGE_SHIFT))
         return -EINVAL;
 
-    vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
+    //TODO:- Comment only for PPC and not on Intel 
+    //vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
+    vma->vm_flags |=VM_DONTEXPAND | VM_DONTDUMP;
     vma->vm_private_data = (void *)vmo;
     vma->vm_ops = &mem_vm_ops;
 
